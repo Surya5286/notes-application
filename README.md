@@ -1,2 +1,2 @@
 # notes-application
-Building a Full Stack notes-application with React as FrontEnd and SpringBot as backend
+Building a Secure Full Stack notes-application with React as FrontEnd and SpringBot as backend
