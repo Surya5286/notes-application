@@ -5,3 +5,19 @@ spring:
     user:
       name: admin
       password: password
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notes
+    username: surya
+    password: surya
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
