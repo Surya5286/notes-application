@@ -1,6 +1,6 @@
-package com.app.notes.repository;
+package com.secure.notes.repository;
 
-import com.app.notes.model.Note;
+import com.secure.notes.model.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

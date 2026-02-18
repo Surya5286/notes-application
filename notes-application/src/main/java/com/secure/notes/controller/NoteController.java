@@ -1,7 +1,7 @@
-package com.app.notes.controller;
+package com.secure.notes.controller;
 
-import com.app.notes.model.Note;
-import com.app.notes.service.NoteService;
+import com.secure.notes.model.Note;
+import com.secure.notes.service.NoteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

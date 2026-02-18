@@ -1,4 +1,4 @@
-package com.app.notes.model;
+package com.secure.notes.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;
