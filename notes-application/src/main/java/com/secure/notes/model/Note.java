@@ -3,10 +3,11 @@ package com.secure.notes.model;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
-@Builder
 public class Note {
 
     @Id
