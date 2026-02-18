@@ -1,10 +1,12 @@
 package com.app.notes.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
+@Builder
 public class Note {
 
     @Id
