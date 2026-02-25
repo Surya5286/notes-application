@@ -35,6 +35,7 @@ public class SecurityConfig {
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .addFilterBefore(new CustomLoggingFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new RequestValidationFilter(), CustomLoggingFilter.class)
                 .httpBasic(Customizer.withDefaults()); // or .formLogin(Customizer.withDefaults())
         return http.build();
     }
