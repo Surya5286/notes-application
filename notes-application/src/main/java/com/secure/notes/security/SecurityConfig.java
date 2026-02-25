@@ -25,7 +25,10 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth ->
-                        auth.anyRequest().authenticated()
+                        auth
+                                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/public/**").permitAll() // Permitting All api's if available to access the public information.
+                                .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults()); // or .formLogin(Customizer.withDefaults())
