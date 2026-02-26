@@ -52,9 +52,15 @@ public class SecurityConfig {
                                 .requestMatchers("/api/auth/public/**").permitAll()
                                 .anyRequest().authenticated()
                 )
-                .exceptionHandling(exception ->
-                        exception.authenticationEntryPoint(unauthorizedHandler))
-                .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class)
+
+                // Custom Exception handling Injection
+                .exceptionHandling(exception
+                        -> exception.authenticationEntryPoint(unauthorizedHandler))
+
+                // Inject Custom Auth Filter
+                .addFilterBefore(authenticationJwtTokenFilter(),
+                        UsernamePasswordAuthenticationFilter.class)
+
                 .httpBasic(Customizer.withDefaults()); // or .formLogin(Customizer.withDefaults())
         return http.build();
     }
@@ -63,7 +69,6 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

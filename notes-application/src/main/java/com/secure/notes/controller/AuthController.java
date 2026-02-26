@@ -4,7 +4,7 @@ import com.secure.notes.security.jwt.JwtUtils;
 import com.secure.notes.security.request.LoginRequest;
 import com.secure.notes.security.response.LoginResponse;
 import com.secure.notes.security.services.UserDetailsImpl;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,15 +24,16 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
-@RequiredArgsConstructor
 public class AuthController {
 
-    private final JwtUtils jwtUtils;
-    private final AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtUtils jwtUtils;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @PostMapping("/public/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
-
         Authentication authentication;
         try {
             authentication = authenticationManager
