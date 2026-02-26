@@ -1,6 +1,8 @@
 spring:
   application:
     name: notes-application
+    jwtSecret: MySecretgeneratedrandomAndLongStringfortestingpurposejkiuyttrew
+    jwtExpirationMs: 172800000
   security:
     user:
       name: admin
